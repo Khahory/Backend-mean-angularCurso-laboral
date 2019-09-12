@@ -1,0 +1,22 @@
+{
+  "name": "backend-mean-angular-curso",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Khahory/Backend-mean-angularCurso-laboral.git"
+  },
+  "author": "Angel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Khahory/Backend-mean-angularCurso-laboral/issues"
+  },
+  "homepage": "https://github.com/Khahory/Backend-mean-angularCurso-laboral#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
