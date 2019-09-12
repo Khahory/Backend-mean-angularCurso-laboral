@@ -118,6 +118,32 @@ app.post('/', (req, res) => {
 <!-- ======================================================================== -->
 <!-- End Crear nuevo usuario -->
 
+<!-- Start Borrar un usuario -->
+<!-- ======================================================================== -->
+
+app.delete('/:usuario_a_borrar', (rep, res) => {
+    var id = rep.params.usuario_a_borrar;
+
+    Usuario.findByIdAndRemove(id, (err, usuarioBorrado) => {
+        if (err) {
+            return res.status(500).json({
+                ok: false,
+                mensaje: 'Error al borrar usuario',
+                errors: err
+            });
+        }
+
+        res.status(200).json({
+            ok: true,
+            body: usuarioBorrado
+        });
+    });
+});
+
+<!-- ======================================================================== -->
+<!-- End Borrar un usuario -->
+
+
 
 //  Requerimos exportar esto porque lo usaremos en otro sitio
 module.exports = app;
