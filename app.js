@@ -17,18 +17,18 @@ mongoose.connection.openUri('mongodb://localhost:27017/hospitalDB', (err, res) =
 });
 
 
-// Rutas
+// Rutasj
 app.get('/', (req, res, next) => {
 
     res.status(200).json({
         ok: true,
-        mensaje: 'Peticion realizada correctamente'
+        mensaje: 'Peticion realizada correctamente Khahory'
     });
 
 });
 
 
 // Escuchar peticiones
-app.listen(3000, () => {
-    console.log('Express server puerto 3000: \x1b[32m%s\x1b[0m', 'online');
+app.listen(47017, () => {
+    console.log('Express server puerto 47017: \x1b[32m%s\x1b[0m', 'online');
 });
