@@ -48,7 +48,7 @@ app.post('/', (req, res) => {
     //  Guardar usuario
     usuario.save((error, usuarioSave) => {
         if (error) {
-            return res.status(500).json({
+            return res.status(400).json({
                 ok: false,
                 mensaje: 'Error al crear usuario',
                 errors: error

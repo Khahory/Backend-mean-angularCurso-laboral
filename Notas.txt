@@ -1,0 +1,4 @@
+
+
+Install plugins mongoose
+npm install mongoose-unique-validator --save
