@@ -1,4 +1,5 @@
 
 
 Install plugins mongoose
-npm install mongoose-unique-validator --save
+npm install mongoose-unique-validator --save (para validar campos de los modelos)
+npm install bcryptjs --save (para poder crear pass encriptada)
