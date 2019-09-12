@@ -1,12 +1,14 @@
 var express = require('express');
 var bcrypt = require('bcryptjs');
+var jwt = require('jsonwebtoken');
 
+var SEED = require('../config/config').SEED;
 var app = express();
 
 var Usuario = require('../models/usuario');
 
 
-<!-- Start Obtener todos los usuarios  -->
+/**  @Start Obtener todos los usuarios */
 <!-- ======================================================================== -->
 
 // Rutasj
@@ -34,7 +36,30 @@ app.get('/', (req, res, next) => {
 <!-- End Obtener todos los usuarios  -->
 
 
-<!-- Start Actualizar un usuario -->
+/**  @Start Verificar token */
+<!-- ======================================================================== -->
+
+app.use('/', (rep, res, next) => {
+    var token = rep.query.token;
+
+    jwt.verify(token, SEED, (err, decoded) => {
+       if (err) {
+           return res.status(401).json({
+               ok: false,
+               mensaje: 'Token incorrecto ',
+               errors: err
+           });
+       }
+
+       next();
+    });
+});
+
+<!-- ======================================================================== -->
+<!-- End Verificar token -->
+
+
+/**  @Start Actualizar un usuario */
 <!-- ======================================================================== -->
 
 app.put('/:id', (req, res) => {
@@ -84,7 +109,7 @@ app.put('/:id', (req, res) => {
 <!-- End Actualizar un usuario -->
 
 
-<!-- Start Crear nuevo usuario -->
+/**  @Start Crear nuevo usuario */
 <!-- ======================================================================== -->
 
 app.post('/', (req, res) => {
@@ -118,7 +143,8 @@ app.post('/', (req, res) => {
 <!-- ======================================================================== -->
 <!-- End Crear nuevo usuario -->
 
-<!-- Start Borrar un usuario -->
+
+/**  @Start Borrar un usuario */
 <!-- ======================================================================== -->
 
 app.delete('/:usuario_a_borrar', (rep, res) => {
@@ -142,7 +168,6 @@ app.delete('/:usuario_a_borrar', (rep, res) => {
 
 <!-- ======================================================================== -->
 <!-- End Borrar un usuario -->
-
 
 
 //  Requerimos exportar esto porque lo usaremos en otro sitio
