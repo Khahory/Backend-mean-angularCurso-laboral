@@ -1,5 +1,6 @@
 var express = require('express');
 var bcrypt = require('bcryptjs');
+var jwt = require('jsonwebtoken');
 
 var app = express();
 
@@ -38,21 +39,19 @@ app.post('/', (req, res) => {
             });
         }
 
-        //  Crear token
+        //  Crear token jwtk
+        usuarioDB.password = ';^D';
+        var token = jwt.sign({usuario: usuarioDB}, 'soy-una-semilla', {expiresIn: 1400});
 
         res.status(200).json({
             ok: true,
             mensaje: 'Logueado',
+            token: token,
             usuario: usuarioDB,
             id: usuarioDB._id,
             body: body
         });
     });
-    // res.status(200).json({
-    //     ok: true,
-    //     mensaje: 'Logueado',
-    //     body: body
-    // });
 });
 
 <!-- ======================================================================== -->
