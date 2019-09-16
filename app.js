@@ -37,14 +37,14 @@ app.get('/', (req, res, next) => {
 
     res.status(200).json({
         ok: true,
-        mensaje: 'Peticion realizada correctamente'
+        mensaje: ' Peticion realizada correctamente'
     });
 
 });
 
 // Escuchar peticiones
 app.listen(47017, () => {
-    console.log('Express server puerto 27017: \x1b[32m%s\x1b[0m', 'online');
+    console.log('Express server puerto 47017: \x1b[32m%s\x1b[0m', 'online');
 });
 // 47017
 // 27017
